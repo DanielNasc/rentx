@@ -12,9 +12,11 @@ export class CategoriesRepository implements ICategoriesRepository {
   }
 
   create({ name, description }: ICreateCategoryDTO): void {
-    const newCategory = new Category();
-
-    Object.assign(newCategory, { name, description, created_at: new Date() });
+    const newCategory = new Category({
+      name,
+      description,
+      created_at: new Date(),
+    });
 
     this.epicDatabase.push(newCategory);
   }

@@ -4,6 +4,7 @@
   "description": "Aplicação desenvolvida durante a trilha de Node.js do curso ignite da rocketseat",
   "main": "src/server.ts",
   "scripts": {
+    "dev": "tsnd --transpile-only --ignore-watch node_modules --respawn .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -25,6 +26,7 @@
     "eslint-plugin-import-helpers": "^1.2.1",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.7.1",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^4.7.4"
   }
 }
