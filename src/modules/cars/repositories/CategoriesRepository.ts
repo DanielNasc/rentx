@@ -6,9 +6,18 @@ import {
 
 export class CategoriesRepository implements ICategoriesRepository {
   private epicDatabase: Category[];
+  private static INSTANCE: CategoriesRepository;
 
-  constructor() {
+  private constructor() {
     this.epicDatabase = [];
+  }
+
+  public static getIntance(): CategoriesRepository {
+    if (!CategoriesRepository.INSTANCE) {
+      CategoriesRepository.INSTANCE = new CategoriesRepository()
+    }
+
+    return CategoriesRepository.INSTANCE;
   }
 
   create({ name, description }: ICreateCategoryDTO): void {
