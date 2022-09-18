@@ -1,8 +1,8 @@
-import { Category } from "../model/Category";
+import { Category } from "../../model/Category";
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
-} from "./ICategoriesRepository";
+} from "../ICategoriesRepository";
 
 export class CategoriesRepository implements ICategoriesRepository {
   private epicDatabase: Category[];
@@ -14,7 +14,7 @@ export class CategoriesRepository implements ICategoriesRepository {
 
   public static getIntance(): CategoriesRepository {
     if (!CategoriesRepository.INSTANCE) {
-      CategoriesRepository.INSTANCE = new CategoriesRepository()
+      CategoriesRepository.INSTANCE = new CategoriesRepository();
     }
 
     return CategoriesRepository.INSTANCE;
