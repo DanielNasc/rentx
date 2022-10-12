@@ -25,7 +25,12 @@ export class ImportCategoryUseCase {
 
           categories.push({ name, description });
         })
-        .on("end", () => resolve(categories))
+        .on("end", () => {
+          fs.unlink(file.path, (err) => {
+            if (err) throw err;
+          });
+          resolve(categories);
+        })
         .on("error", (err) => reject(err));
     });
   }
